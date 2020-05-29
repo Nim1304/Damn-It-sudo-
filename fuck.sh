@@ -1,5 +1,6 @@
-#!/bin/bash
-# lastCommand=$(echo `history |tail -n2 |head -n1` | sed 's/[0-9]* //')
-# echo 'hi'+$(lastCommand)
+#!/bin/bash -i
+set -o history
+lastCommand=$(echo `history | tail -2 | head -1 | cut -c8-999`)
+echo "$lastCommand"
 # sudo $(lastCommand)
 
