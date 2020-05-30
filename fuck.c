@@ -19,7 +19,7 @@ void main(int argc, char *argv[])
         char path[1000];
         strcpy(path, "/home/");
         strcat(path, pw->pw_name);
-        strcat(path, "/.bash_history");
+        strcat(path, "/.history");
         FILE *fp;
         fp = fopen(path, "r");
         if (fp == NULL)
@@ -29,8 +29,11 @@ void main(int argc, char *argv[])
         }
         else
         {
-            char data[100];
-            while(fscanf(fp,"%[^\n]",data) != EOF);
+            char data[1000];
+            while(fscanf(fp,"%[^\n]",data)!=EOF){
+                fgetc(fp);
+
+            }
             printf("%s",data);
         }
     }
